@@ -1,0 +1,404 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Contact Us"
+	description="Get in touch with Orige Painting for a free estimate"
+>
+	<!-- Hero Section -->
+	<section class="bg-dark-secondary py-12 text-center border-b border-white/10">
+		<div class="container mx-auto px-6">
+			<h1 class="text-5xl md:text-6xl font-bold text-gold mb-4 tracking-tight">
+				CONTACT US
+			</h1>
+			<div class="divider-gold"></div>
+			<p class="text-xl text-white/70 mt-6 max-w-2xl mx-auto">
+				Ready to transform your space? Get in touch for a free, no-obligation
+				estimate
+			</p>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="bg-dark py-20">
+		<div class="container mx-auto px-6">
+			<div class="grid lg:grid-cols-2 gap-12 items-start">
+				<!-- Contact Form -->
+				<div>
+					<h2 class="text-3xl font-serif text-gold mb-6 tracking-wide">
+						Send Us A Message
+					</h2>
+					<p class="text-white/60 mb-8">
+						Fill out the form below and we'll get back to you within 24 hours
+					</p>
+
+					<!-- Formspree Form -->
+					<form
+						id="contact-form"
+						action="https://formspree.io/f/xojjvper"
+						method="POST"
+						class="space-y-6"
+					>
+						<!-- Name & Phone -->
+						<div class="grid md:grid-cols-2 gap-6">
+							<div>
+								<label
+									for="name"
+									class="block text-sm font-semibold text-white/80 mb-2 uppercase tracking-wide"
+								>
+									Name
+								</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									required
+									class="w-full rounded"
+									placeholder="Your full name"
+								/>
+							</div>
+							<div>
+								<label
+									for="phone"
+									class="block text-sm font-semibold text-white/80 mb-2 uppercase tracking-wide"
+								>
+									Phone
+								</label>
+								<input
+									type="tel"
+									id="phone"
+									name="phone"
+									required
+									class="w-full rounded"
+									placeholder="+1 (508) 901-7609"
+								/>
+							</div>
+						</div>
+
+						<!-- Email -->
+						<div>
+							<label
+								for="email"
+								class="block text-sm font-semibold text-white/80 mb-2 uppercase tracking-wide"
+							>
+								Email
+							</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								required
+								class="w-full rounded"
+								placeholder="your.email@example.com"
+							/>
+						</div>
+
+						<!-- Service -->
+						<div>
+							<label
+								for="service"
+								class="block text-sm font-semibold text-white/80 mb-2 uppercase tracking-wide"
+							>
+								Service
+							</label>
+							<select id="service" name="service" class="w-full rounded">
+								<option value="">Select a service</option>
+								<option value="interior">Interior Painting</option>
+								<option value="exterior">Exterior Painting</option>
+								<option value="cabinets">Cabinet Refinishing</option>
+								<option value="deck-refinishing">Deck Refinishing</option>
+								<option value="power-washing">Power Washing</option>
+								<option value="commercial">Commercial Projects</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+
+						<!-- Message -->
+						<div>
+							<label
+								for="message"
+								class="block text-sm font-semibold text-white/80 mb-2 uppercase tracking-wide"
+							>
+								Message
+							</label>
+							<textarea
+								id="message"
+								name="message"
+								required
+								rows="6"
+								class="w-full rounded resize-none"
+								placeholder="Tell us about your project..."></textarea>
+						</div>
+
+						<!-- Submit Button -->
+						<button type="submit" id="submit-btn" class="btn-gold w-full">
+							Submit
+						</button>
+
+						<!-- Status Message -->
+						<p id="form-status" class="text-center font-medium"></p>
+					</form>
+				</div>
+
+				<!-- Contact Information -->
+				<div class="space-y-8">
+					<!-- Contact Details -->
+					<div class="bg-dark-secondary border border-white/10 p-8 rounded">
+						<h2 class="text-3xl font-serif text-gold mb-8 tracking-wide">
+							Get In Touch
+						</h2>
+
+						<div class="space-y-6">
+							<!-- Phone -->
+							<div class="flex items-start gap-4">
+								<div class="bg-gold/10 p-3 rounded">
+									<svg
+										class="w-6 h-6 text-gold"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white font-semibold mb-1">Phone</h3>
+									<a
+										href="tel:+18001234567"
+										class="text-gold hover:text-gold/80 transition-colors"
+									>
+										+1 (508) 901-7609
+									</a>
+								</div>
+							</div>
+
+							<!-- Email -->
+							<div class="flex items-start gap-4">
+								<div class="bg-gold/10 p-3 rounded">
+									<svg
+										class="w-6 h-6 text-gold"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white font-semibold mb-1">Email</h3>
+									<a
+										href="mailto:origepainting@gmail.com"
+										class="text-gold hover:text-gold/80 transition-colors"
+									>
+										origepainting@gmail.com
+									</a>
+								</div>
+							</div>
+
+							<!-- Hours -->
+							<div class="flex items-start gap-4">
+								<div class="bg-gold/10 p-3 rounded">
+									<svg
+										class="w-6 h-6 text-gold"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white font-semibold mb-1">Hours</h3>
+									<p class="text-white/60 text-sm">
+										Mon-Fri: 8am-6pm<br />
+										Sat: 9am-4pm<br />
+										Sun: Closed
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Map -->
+					<div class="bg-dark-secondary border border-white/10 p-8 rounded">
+						<h3 class="text-2xl font-serif text-gold mb-6 tracking-wide">
+							Service Area
+						</h3>
+						<div class="rounded overflow-hidden">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.123456789!2d-71.1531324!3d42.4818954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e375a9ffa8789b%3A0xb7c577cd27b5663f!2s476%20Main%20St%2C%20Woburn%2C%20MA%2001801!5e0!3m2!1sen!2sus!4v1737491234567!5m2!1sen!2sus"
+								width="100%"
+								height="300"
+								style="border:0;"
+								allowfullscreen=""
+								loading="lazy"
+								referrerpolicy="no-referrer-when-downgrade"
+								title="Orige Painting Location - 476 Main St, Woburn, MA 01801"
+							></iframe>
+						</div>
+						<div class="mt-4 text-center">
+							<p class="text-white/80 font-semibold mb-1">Our Location</p>
+							<p class="text-white/60 text-sm">476 Main St, Woburn, MA 01801</p>
+							<a
+								href="https://www.google.com/maps/dir//476+Main+St,+Woburn,+MA+01801"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-block mt-3 text-gold hover:text-gold/80 transition-colors text-sm font-semibold"
+							>
+								Get Directions →
+							</a>
+						</div>
+					</div>
+
+					<!-- Why Choose Us -->
+					<div class="bg-dark-secondary border border-white/10 p-8 rounded">
+						<h3 class="text-2xl font-serif text-gold mb-6 tracking-wide">
+							Why Choose Us
+						</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start gap-3">
+								<svg
+									class="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+									></path>
+								</svg>
+								<span class="text-white/70 text-sm"
+									>Free, detailed estimates</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg
+									class="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+									></path>
+								</svg>
+								<span class="text-white/70 text-sm"
+									>Licensed and insured professionals</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg
+									class="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+									></path>
+								</svg>
+								<span class="text-white/70 text-sm"
+									>Premium materials and equipment</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg
+									class="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+									></path>
+								</svg>
+								<span class="text-white/70 text-sm"
+									>Satisfaction guaranteed</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg
+									class="w-5 h-5 text-gold mt-0.5 flex-shrink-0"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+									></path>
+								</svg>
+								<span class="text-white/70 text-sm"
+									>Flexible scheduling options</span
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="bg-dark-secondary py-16 border-t border-white/10">
+		<div class="container mx-auto px-6 text-center">
+			<h2 class="text-3xl font-serif text-white mb-4 tracking-wide">
+				Prefer to talk directly?
+			</h2>
+			<p class="text-white/60 mb-8">
+				Call us now and speak with one of our painting specialists
+			</p>
+			<a href="tel:+18001234567" class="btn-gold inline-block">
+				Call +1 (508) 901-7609
+			</a>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const form = document.getElementById("contact-form") as HTMLFormElement;
+	const status = document.getElementById("form-status") as HTMLParagraphElement;
+	const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
+
+		// Disable button and show loading state
+		submitBtn.disabled = true;
+		submitBtn.textContent = "Sending...";
+		status.textContent = "";
+		status.className = "text-center font-medium";
+
+		const data = new FormData(form);
+
+		try {
+			const response = await fetch(form.action, {
+				method: form.method,
+				body: data,
+				headers: {
+					Accept: "application/json",
+				},
+			});
+
+			if (response.ok) {
+				status.textContent =
+					"Thanks for your submission! We'll get back to you soon.";
+				status.classList.add("text-green-500");
+				form.reset();
+			} else {
+				const responseData = await response.json();
+				if (Object.hasOwn(responseData, "errors")) {
+					status.textContent = responseData["errors"]
+						.map((error: { message: string }) => error["message"])
+						.join(", ");
+				} else {
+					status.textContent =
+						"Oops! There was a problem submitting your form.";
+				}
+				status.classList.add("text-red-500");
+			}
+		} catch (error) {
+			status.textContent = "Oops! There was a problem submitting your form.";
+			status.classList.add("text-red-500");
+		} finally {
+			// Re-enable button
+			submitBtn.disabled = false;
+			submitBtn.textContent = "Submit";
+		}
+	}
+
+	form.addEventListener("submit", handleSubmit);
+</script>

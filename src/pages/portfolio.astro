@@ -1,0 +1,431 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Project data with categories and multiple images
+const projects = [
+	{
+		id: 1,
+		title: "Natural Wood",
+		category: "residential",
+		type: "interior",
+		description:
+			"Complete transformation with premium finishes and attention to detail",
+		images: [
+			"/img/interior/Natural_Wood/606424763_18301928659257936_1411423436478975140_n.jpg",
+			"/img/interior/Natural_Wood/587720231_18301928698257936_4696421239573244659_n.jpg",
+			"/img/interior/Natural_Wood/606309354_18301928680257936_5615028339085517092_n.jpg",
+			"/img/interior/Natural_Wood/606541570_18301928671257936_8544790960988131186_n.jpg",
+		],
+	},
+	{
+		id: 2,
+		title: "Master Bathroom",
+		category: "residential",
+		type: "interior",
+		description:
+			"Professional commercial painting with weather-resistant coating",
+		images: [
+			"/img/interior/Master_bathroom/608425283_18302475133257936_224737098064440361_n.jpg",
+			"/img/interior/Master_bathroom/610583439_18303509320257936_6190151678176794086_n.jpg",
+			"/img/interior/Master_bathroom/611246356_18303509311257936_8505935742475308645_n.jpg",
+			"/img/interior/Master_bathroom/591141185_18300007264257936_2621700995468673050_n.jpg",
+			"/img/interior/Master_bathroom/591144671_18300007351257936_3090917796583928538_n.jpg",
+			"/img/interior/Master_bathroom/591152606_18300007285257936_1841255615589407521_n.jpg",
+			"/img/interior/Master_bathroom/591164101_18300007276257936_1627042044537997326_n.jpg",
+			"/img/interior/Master_bathroom/588531854_18299609095257936_5513512390168352357_n.jpg",
+		],
+	},
+	{
+		id: 3,
+		title: "Home Interior",
+		category: "residential",
+		type: "interior",
+		description: "High-end residential project with custom color palette",
+		images: [
+			"/img/interior/interior/590410005_18300717520257936_3069778399571524313_n.jpg",
+			"/img/interior/interior/598719113_18300717067257936_1559209290366959531_n.jpg",
+		],
+	},
+	{
+		id: 4,
+		title: "House Exterior Paint",
+		category: "exterior",
+		type: "exterior",
+		description: "Full exterior painting with premium weather protection",
+		images: [
+			"/img/exterior/520190917_18282038962257936_7794260257175367034_n.jpg",
+			"/img/exterior/550681526_18288611005257936_3488973638395587363_n.jpg",
+			"/img/exterior/560064204_18291548992257936_6609928203038968311_n.jpg",
+			"/img/exterior/574679331_18294886621257936_1367629646024529284_n.jpg",
+		],
+	},
+];
+---
+
+<Layout
+	title="Portfolio"
+	description="View our completed painting projects and transformations"
+>
+	<!-- Hero Section -->
+	<section class="bg-dark-secondary py-12 text-center border-b border-white/10">
+		<div class="container mx-auto px-6">
+			<h1 class="text-5xl md:text-6xl font-bold text-gold mb-4 tracking-tight">
+				PORTFOLIO
+			</h1>
+			<div class="divider-gold"></div>
+			<p class="text-xl text-white/70 mt-6 max-w-2xl mx-auto">
+				Explore our recent projects and see the quality of our work
+			</p>
+		</div>
+	</section>
+
+	<!-- Portfolio Grid -->
+	<section class="bg-dark py-20">
+		<div class="container mx-auto px-6">
+			<!-- Categories -->
+			<div class="flex flex-wrap gap-4 justify-center mb-12">
+				<button class="filter-btn btn-gold text-sm uppercase" data-filter="all"
+					>All Projects</button
+				>
+				<!-- <button
+					class="filter-btn btn-outline-gold text-sm uppercase"
+					data-filter="residential">Residential</button
+				>
+				<button
+					class="filter-btn btn-outline-gold text-sm uppercase"
+					data-filter="commercial">Commercial</button
+				> -->
+				<button
+					class="filter-btn btn-outline-gold text-sm uppercase"
+					data-filter="interior">Interior</button
+				>
+				<button
+					class="filter-btn btn-outline-gold text-sm uppercase"
+					data-filter="exterior">Exterior</button
+				>
+			</div>
+
+			<!-- Grid -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+				{
+					projects.map((project) => (
+						<div
+							class="project-card card-luxury group cursor-pointer"
+							data-category={project.category}
+							data-type={project.type}
+							data-project-id={project.id}
+						>
+							<div class="bg-gray-800 h-64 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+								<img
+									src={project.images[0]}
+									alt={project.title}
+									class="w-full h-full object-cover"
+									onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+								/>
+								<svg
+									class="w-16 h-16 text-gold/30 hidden"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-2">{project.title}</h3>
+							<p class="text-gold/80 text-sm mb-3 uppercase tracking-wide">
+								{project.category} • {project.type}
+							</p>
+							<p class="text-white/50 text-sm">{project.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="bg-dark-secondary py-20">
+		<div class="container mx-auto px-6">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-serif text-gold mb-4 tracking-wide">
+					CLIENT TESTIMONIALS
+				</h2>
+				<div class="divider-gold"></div>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="card-luxury">
+					<div class="flex gap-1 mb-4">
+						{
+							[...Array(5)].map(() => (
+								<svg
+									class="w-5 h-5 text-gold"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+								</svg>
+							))
+						}
+					</div>
+					<p class="text-white/70 mb-4 leading-relaxed">
+						"Exceptional work! The team was professional, punctual, and the
+						quality exceeded our expectations. Highly recommend!"
+					</p>
+					<p class="text-gold font-semibold">— Sarah M.</p>
+				</div>
+
+				<div class="card-luxury">
+					<div class="flex gap-1 mb-4">
+						{
+							[...Array(5)].map(() => (
+								<svg
+									class="w-5 h-5 text-gold"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+								</svg>
+							))
+						}
+					</div>
+					<p class="text-white/70 mb-4 leading-relaxed">
+						"The attention to detail was incredible. They transformed our home
+						and made the entire process stress-free."
+					</p>
+					<p class="text-gold font-semibold">— Michael R.</p>
+				</div>
+
+				<div class="card-luxury">
+					<div class="flex gap-1 mb-4">
+						{
+							[...Array(5)].map(() => (
+								<svg
+									class="w-5 h-5 text-gold"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+								</svg>
+							))
+						}
+					</div>
+					<p class="text-white/70 mb-4 leading-relaxed">
+						"Outstanding service from start to finish. The results speak for
+						themselves. Will definitely use again!"
+					</p>
+					<p class="text-gold font-semibold">— Jennifer L.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="bg-dark py-20">
+		<div class="container mx-auto px-6 text-center">
+			<h2 class="text-4xl font-serif text-gold mb-6 tracking-wide">
+				Ready to Start Your Project?
+			</h2>
+			<p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+				Join our satisfied clients and experience the Orige Painting difference
+			</p>
+			<a href="/contact" class="btn-gold">Get A Free Estimate</a>
+		</div>
+	</section>
+
+	<!-- Gallery Modal -->
+	<div
+		id="gallery-modal"
+		class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4"
+	>
+		<button
+			id="close-modal"
+			class="absolute top-6 right-6 text-white/70 hover:text-gold transition-colors z-10"
+		>
+			<svg
+				class="w-8 h-8"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M6 18L18 6M6 6l12 12"></path>
+			</svg>
+		</button>
+
+		<button
+			id="prev-image"
+			class="absolute left-6 text-white/70 hover:text-gold transition-colors z-10"
+		>
+			<svg
+				class="w-12 h-12"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M15 19l-7-7 7-7"></path>
+			</svg>
+		</button>
+
+		<button
+			id="next-image"
+			class="absolute right-6 text-white/70 hover:text-gold transition-colors z-10"
+		>
+			<svg
+				class="w-12 h-12"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M9 5l7 7-7 7"></path>
+			</svg>
+		</button>
+
+		<div class="max-w-6xl w-full">
+			<img
+				id="modal-image"
+				src=""
+				alt=""
+				class="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+			/>
+			<div class="text-center mt-6">
+				<h3 id="modal-title" class="text-2xl font-bold text-gold mb-2"></h3>
+				<p id="modal-counter" class="text-white/60"></p>
+			</div>
+		</div>
+	</div>
+
+	<script is:inline define:vars={{ projects }}>
+		// Portfolio Filter Functionality
+		const filterButtons = document.querySelectorAll(".filter-btn");
+		const projectCards = document.querySelectorAll(".project-card");
+
+		filterButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				const filter = button.getAttribute("data-filter");
+
+				// Update active button
+				filterButtons.forEach((btn) => {
+					btn.classList.remove("btn-gold");
+					btn.classList.add("btn-outline-gold");
+				});
+				button.classList.remove("btn-outline-gold");
+				button.classList.add("btn-gold");
+
+				// Filter projects
+				projectCards.forEach((card) => {
+					const category = card.getAttribute("data-category");
+					const type = card.getAttribute("data-type");
+
+					if (filter === "all") {
+						card.style.display = "block";
+						setTimeout(() => (card.style.opacity = "1"), 10);
+					} else if (category === filter || type === filter) {
+						card.style.display = "block";
+						setTimeout(() => (card.style.opacity = "1"), 10);
+					} else {
+						card.style.opacity = "0";
+						setTimeout(() => (card.style.display = "none"), 300);
+					}
+				});
+			});
+		});
+
+		// Gallery Modal Functionality
+		const modal = document.getElementById("gallery-modal");
+		const modalImage = document.getElementById("modal-image");
+		const modalTitle = document.getElementById("modal-title");
+		const modalCounter = document.getElementById("modal-counter");
+		const closeModal = document.getElementById("close-modal");
+		const prevButton = document.getElementById("prev-image");
+		const nextButton = document.getElementById("next-image");
+
+		let currentProject = null;
+		let currentImageIndex = 0;
+
+		// Open gallery when clicking on project card
+		projectCards.forEach((card) => {
+			card.addEventListener("click", () => {
+				const projectId = parseInt(card.getAttribute("data-project-id"));
+				currentProject = projects.find((p) => p.id === projectId);
+				currentImageIndex = 0;
+				openGallery();
+			});
+		});
+
+		function openGallery() {
+			if (!currentProject) return;
+			updateModalImage();
+			modal.classList.remove("hidden");
+			modal.classList.add("flex");
+			document.body.style.overflow = "hidden";
+		}
+
+		function closeGallery() {
+			modal.classList.remove("flex");
+			modal.classList.add("hidden");
+			document.body.style.overflow = "auto";
+		}
+
+		function updateModalImage() {
+			if (!currentProject) return;
+			const images = currentProject.images;
+			modalImage.src = images[currentImageIndex];
+			modalImage.alt = currentProject.title;
+			modalTitle.textContent = currentProject.title;
+			modalCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+
+			// Show/hide navigation buttons
+			prevButton.style.display = images.length > 1 ? "block" : "none";
+			nextButton.style.display = images.length > 1 ? "block" : "none";
+		}
+
+		// Close modal
+		closeModal.addEventListener("click", closeGallery);
+		modal.addEventListener("click", (e) => {
+			if (e.target === modal) closeGallery();
+		});
+
+		// Navigation
+		prevButton.addEventListener("click", (e) => {
+			e.stopPropagation();
+			if (!currentProject) return;
+			currentImageIndex =
+				(currentImageIndex - 1 + currentProject.images.length) %
+				currentProject.images.length;
+			updateModalImage();
+		});
+
+		nextButton.addEventListener("click", (e) => {
+			e.stopPropagation();
+			if (!currentProject) return;
+			currentImageIndex =
+				(currentImageIndex + 1) % currentProject.images.length;
+			updateModalImage();
+		});
+
+		// Keyboard navigation
+		document.addEventListener("keydown", (e) => {
+			if (!modal.classList.contains("flex")) return;
+
+			if (e.key === "Escape") closeGallery();
+			if (e.key === "ArrowLeft") prevButton.click();
+			if (e.key === "ArrowRight") nextButton.click();
+		});
+
+		// Add transition to cards
+		projectCards.forEach((card) => {
+			card.style.transition = "opacity 0.3s ease";
+		});
+	</script>
+</Layout>

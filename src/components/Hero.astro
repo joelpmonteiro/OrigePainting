@@ -1,0 +1,28 @@
+---
+interface Props {
+	title: string;
+	subtitle?: string;
+	backgroundImage?: string;
+}
+
+const { title, subtitle, backgroundImage = '/hero-bg.jpg' } = Astro.props;
+---
+
+<section class="relative h-[600px] flex items-center justify-center text-white">
+	<div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90 z-10"></div>
+	<div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${backgroundImage})`}></div>
+
+	<div class="container mx-auto px-4 text-center z-20 relative">
+		<h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+			{title}
+		</h1>
+		{subtitle && (
+			<p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">
+				{subtitle}
+			</p>
+		)}
+		<div class="flex gap-4 justify-center flex-wrap">
+			<slot />
+		</div>
+	</div>
+</section>
